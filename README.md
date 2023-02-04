@@ -13,3 +13,4 @@ Dan's worklog
 3 Setup a new project in Unity
 4 configure unity to track datafiles as text. 
 5 add your unity project to git and submit it
+6 work through the catlike tutorial for sliding a sphere - https://catlikecoding.com/unity/tutorials/movement/sliding-a-sphere/
