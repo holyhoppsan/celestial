@@ -25,23 +25,27 @@ public class PlayerMovement : MonoBehaviour
         Vector3 desiredVelocity = new Vector3(playerInput.x, 0.0f, playerInput.y) * maxSpeed;
         float maxSpeedChange = maxAcceleration * Time.deltaTime;
 
-        if (velocity.x < desiredVelocity.x)
-        {
-            velocity.x = Mathf.Min(velocity.x + maxSpeedChange, desiredVelocity.x);
-        }
-        else if (velocity.x > desiredVelocity.x)
-        {
-            velocity.x = Mathf.Max(velocity.x - maxSpeedChange, desiredVelocity.x);
-        }
+        velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
 
-        if (velocity.z < desiredVelocity.z)
-        {
-            velocity.z = Mathf.Min(velocity.z + maxSpeedChange, desiredVelocity.z);
-        }
-        else if (velocity.z > desiredVelocity.z)
-        {
-            velocity.z = Mathf.Max(velocity.z - maxSpeedChange, desiredVelocity.z);
-        }
+        velocity.z = Mathf.MoveTowards(velocity.z, desiredVelocity.z, maxSpeedChange);
+
+        // if (velocity.x < desiredVelocity.x)
+        // {
+        //     velocity.x = Mathf.Min(velocity.x + maxSpeedChange, desiredVelocity.x);
+        // }
+        // else if (velocity.x > desiredVelocity.x)
+        // {
+        //     velocity.x = Mathf.Max(velocity.x - maxSpeedChange, desiredVelocity.x);
+        // }
+
+        // if (velocity.z < desiredVelocity.z)
+        // {
+        //     velocity.z = Mathf.Min(velocity.z + maxSpeedChange, desiredVelocity.z);
+        // }
+        // else if (velocity.z > desiredVelocity.z)
+        // {
+        //     velocity.z = Mathf.Max(velocity.z - maxSpeedChange, desiredVelocity.z);
+        // }
 
         Vector3 displacement = velocity * Time.deltaTime;
 
