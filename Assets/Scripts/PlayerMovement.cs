@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField, Range(0.0f, 100.0f)]
     float maxAcceleration = 10.0f;
 
+    [SerializeField]
+    Rect allowedArea = new Rect(-5.0f, -5.0f, 10.0f, 10.0f);
+
     Vector3 velocity;
 
     // Update is called once per frame
@@ -49,6 +52,11 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 displacement = velocity * Time.deltaTime;
 
-        transform.localPosition += displacement;
+        Vector3 newPosition = transform.localPosition + displacement;
+        if (!allowedArea.Contains(new Vector2(newPosition.x, newPosition.z)))
+        {
+            newPosition = transform.localPosition;
+        }
+        transform.localPosition = newPosition;
     }
 }
