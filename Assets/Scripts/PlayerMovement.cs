@@ -60,23 +60,23 @@ public class PlayerMovement : MonoBehaviour
             if (newPosition.x < allowedArea.xMin)
             {
                 newPosition.x = allowedArea.xMin;
-                velocity.x = 0.0f;
+                velocity.x = -velocity.x;
             }
             else if (newPosition.x > allowedArea.xMax)
             {
                 newPosition.x = allowedArea.xMax;
-                velocity.x = 0.0f;
+                velocity.x = -velocity.x;
             }
 
             if (newPosition.z < allowedArea.yMin)
             {
                 newPosition.z = allowedArea.yMin;
-                velocity.z = 0.0f;
+                velocity.z = -velocity.z;
             }
             else if (newPosition.z > allowedArea.xMax)
             {
                 newPosition.z = allowedArea.xMax;
-                velocity.z = 0.0f;
+                velocity.z = -velocity.z;
             }
         }
         transform.localPosition = newPosition;
